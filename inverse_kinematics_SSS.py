@@ -9,9 +9,7 @@ from full_segment_to_c3d import full_segment_to_c3d
 from segment_generation import segment_generation as segment_generation
 
 
-def inverse_kinematics_SSS(name_static, name_dynamic):
-    print(name_static)
-    print(name_dynamic)
+def inverse_kinematics_SSS(name_static, name_dynamic,name_export):
 
     # Extraction du c3d
     acq_static = ezc3d.c3d(name_static)
@@ -22,6 +20,7 @@ def inverse_kinematics_SSS(name_static, name_dynamic):
     # Point ind name extraction
     points_names_dynamic = acq_dynamic['parameters']['POINT']['LABELS']['value']
 
+    # TODO Check the unit in the C3D files
     points_static = lbmc.points_treatment(
         acq_static, 10, unit_point='mm')
     points_dynamic = lbmc.points_treatment(
@@ -92,10 +91,13 @@ def inverse_kinematics_SSS(name_static, name_dynamic):
                                      Lname_thigh, Lname_tibia,
                                      Lname_foot])
     #full_segment_marker_name = list([Rname_foot, Rname_tibia])
-
+    # TODO check if  Pour faire des modèles à branches... il suffit de faire des liaisons 6 dof entre les différents segments? 
     full_model_test = [RAnkle_joint_S, RKnee_joint_S,
                        RHip_joint_S, LHip_joint_S,
                        LKnee_joint_S, LAnkle_joint_S]
+    # full_model_test = [RAnkle_joint_U, RKnee_joint_H,
+    #                   RHip_joint_S, LHip_joint_S,
+    #                   LKnee_joint_S, LAnkle_joint_S]
     #full_model_test = [RHip_joint_S]
 
     start_time = time.time()
@@ -106,8 +108,9 @@ def inverse_kinematics_SSS(name_static, name_dynamic):
     print("--- %s seconds ---" % (final_time))
 
     # C3D writing process
-    new_filename = name_dynamic.replace('.c3d', 'invkin.c3d')
-    full_segment_to_c3d(new_filename, acq_dynamic,
+    #new_filename = name_dynamic.replace('.c3d', 'invkin.c3d')
+    print(name_export)
+    full_segment_to_c3d(name_export, acq_dynamic,
                         full_segment, full_segment_marker_name, unit='m')
 
 #     # C3D writing process.-----------------------------------------------------------------

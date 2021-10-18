@@ -31,7 +31,7 @@ def full_segment_to_c3d(filename, acq, full_segment, full_segment_marker_name, u
             acq, name_point_to_replace, point_to_replace)
     else:
         for ind_el, element in enumerate(name_point_to_replace):
-            name_point_to_replace[ind_el] = element+'test'
+            name_point_to_replace[ind_el] = element+'_nM'
         acq = ezc3d_snippet.add(
             acq, name_point_to_replace, point_to_replace)
     # Add the u rp rd w point to the file ----------------------------------------------------
