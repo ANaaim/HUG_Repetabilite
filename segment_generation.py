@@ -102,14 +102,14 @@ def segment_generation(points, points_name):
     Rrd_thigh = RKJC
     Rw_thigh = norm_vector(RFEMUR_Z-RHJC)
     Rrm_thigh = [RTHAP, RTHAD, RTHI, RKNE, RKNM]
-    Rname_thigh = ['RTHAP', 'RTHAD', 'RTHI2', 'RKNE', 'RKNM']
+    Rname_thigh = ['RTHAP', 'RTHAD', 'RTHI', 'RKNE', 'RKNM']
 
     Lu_thigh = norm_vector(LFEMUR_X-LHJC)
     Lrp_thigh = LHJC
     Lrd_thigh = LKJC
     Lw_thigh = norm_vector(LFEMUR_Z-LHJC)
     Lrm_thigh = [LTHAP, LTHAD, LTHI, LKNE, LKNM]
-    Lname_thigh = ['LTHAP', 'LTHAD', 'LTHI2', 'LKNE', "LKNM"]
+    Lname_thigh = ['LTHAP', 'LTHAD', 'LTHI', 'LKNE', "LKNM"]
 
     # Tibia
     Ru_tibia = norm_vector(RTIBIA_X-RKJC)
@@ -117,14 +117,14 @@ def segment_generation(points, points_name):
     Rrd_tibia = RAJC
     Rw_tibia = norm_vector(RTIBIA_Z-RKJC)
     Rrm_tibia = [RMED, RTIAD, RTIB, RANK]
-    Rname_tibia = ['RMED', 'RTIAD', 'RTIB2', 'RANK']
+    Rname_tibia = ['RMED', 'RTIAD', 'RTIB', 'RANK']
 
     Lu_tibia = norm_vector(LTIBIA_X-LKJC)
     Lrp_tibia = LKJC
     Lrd_tibia = LAJC
     Lw_tibia = norm_vector(LTIBIA_Z-LKJC)
     Lrm_tibia = [LMED, LTIAD, LTIB, LANK]
-    Lname_tibia = ['LMED', 'LTIAD', 'LTIB2', 'LANK']
+    Lname_tibia = ['LMED', 'LTIAD', 'LTIB', 'LANK']
 
     # Foot
     Ru_foot = norm_vector(RFOOT_X-RAJC)
